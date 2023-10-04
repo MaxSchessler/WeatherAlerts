@@ -13,5 +13,4 @@ def send_message(message_body, too_phone):
 	from_=from_phone,
 	to=too_phone
 )
-
-send_message("Test", "+14023264360")
+send_message("test", "4023264360")
