@@ -1,7 +1,7 @@
 import requests
 
 import time
-from alerts import send_message
+from alerts import send_message, get_f_degrees
 
 
 def get_weather_data(latitude, longitude):
@@ -11,10 +11,6 @@ def get_weather_data(latitude, longitude):
     weather_data = response.json()
 		
     return weather_data
-
-def get_f_degrees(celcius):
-      return (celcius * (9/5) + 32)
-
 
 
 def send_weather_update():

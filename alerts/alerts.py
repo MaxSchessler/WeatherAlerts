@@ -13,3 +13,6 @@ def send_message(message_body, too_phone):
 	from_=from_phone,
 	to=too_phone
 )
+
+def get_f_degrees(celcius):
+      return (celcius * (9/5) + 32)
