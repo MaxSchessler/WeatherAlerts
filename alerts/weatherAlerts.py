@@ -1,4 +1,5 @@
 import requests
+import schedule
 
 import time
 from alerts import send_message, get_f_degrees
@@ -42,7 +43,12 @@ def send_weather_update():
     print(message_body)
     
     send_message(message_body, "+14023264360")
-	
+
+def main():
+    schedule.every().day.at("8:00").do(send_weather_update)
+    while True:
+        schedule.run_pending()
+        time.sleep()
 
             
 send_weather_update()
