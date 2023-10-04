@@ -39,16 +39,15 @@ def send_weather_update():
 
     Have a wonderful day!
 """
-
-    print(message_body)
     
     send_message(message_body, "+14023264360")
 
 def main():
-    schedule.every().day.at("8:00").do(send_weather_update)
+    print("Starting schedule... Expect at 8:00")
+    schedule.every().day.at("08:00").do(send_weather_update)
     while True:
         schedule.run_pending()
-        time.sleep()
+        time.sleep(1)
 
             
-send_weather_update()
+main()
