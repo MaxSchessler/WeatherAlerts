@@ -24,10 +24,28 @@ def send_weather_update():
 
     weather_data = get_weather_data(latitude, longitude)
 
-    temp_max = get_f_degrees(weather_data["daily"]["temperature_2m_max"])
-    print(temp_max)
+    temp_max = get_f_degrees(weather_data["daily"]["temperature_2m_max"][0])
+    temp_min =  get_f_degrees(weather_data["daily"]["temperature_2m_min"][0])
+    sunrise = weather_data["daily"]["sunrise"][0]
+    sunset = weather_data["daily"]["sunset"][0]
+    precipitation_probibility = weather_data["daily"]["precipitation_probability_max"][0]
     
-    send_message("test", "+14023264360")
+    message_body = f"""
+    Good Morning Max,
+
+    Current Today in Lincoln Nebraska:
+    High: {temp_max}
+    Low: {temp_min}
+    Sunrise: {sunrise}
+    Sunset: {sunset}
+    Percent chance of rain: {precipitation_probibility}
+
+    Have a wonderful day!
+"""
+
+    print(message_body)
+    
+    send_message(message_body, "+14023264360")
 	
 
             
